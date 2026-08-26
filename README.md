@@ -21,5 +21,8 @@ Pylon's desktop app checks for updates over the public GitHub API. This
 repository hosts the release artifacts and the `latest*.yml` / `nightly*.yml`
 update manifests that the updater reads, so installed apps can find new versions.
 
-It holds no source code — only published builds. Issues and pull requests belong
-on the main Pylon repository.
+This repository also publishes `model-manifest.json`, which lets Pylon update
+its current-versus-legacy model classification between app releases.
+
+It holds no product source code — only published builds and public runtime
+metadata. Issues and pull requests belong on the main Pylon repository.
