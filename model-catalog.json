@@ -5,7 +5,6 @@
       "gpt-6.1-sol",
       "gpt-6-astra",
       "gpt-6-luna",
-      "gpt-6-sol",
       "gpt-daybreak-blue-latest",
       "gpt-daybreak-red-latest"
     ],
@@ -13,6 +12,7 @@
       "claude-fable-5-1",
       "claude-opus-5-5",
       "claude-opus-5",
+      "claude-sonnet-5-5",
       "claude-sonnet-5"
     ],
     "antigravity": [
@@ -501,6 +501,85 @@
             "claudeCode": {}
           }
         },
+        "sonnet-5-5": {
+          "capabilities": {
+            "optionDescriptors": [
+              {
+                "id": "effort",
+                "label": "Reasoning",
+                "type": "select",
+                "options": [
+                  {
+                    "id": "low",
+                    "label": "Low"
+                  },
+                  {
+                    "id": "medium",
+                    "label": "Medium"
+                  },
+                  {
+                    "id": "high",
+                    "label": "High",
+                    "isDefault": true
+                  },
+                  {
+                    "id": "xhigh",
+                    "label": "Extra High"
+                  },
+                  {
+                    "id": "max",
+                    "label": "Max"
+                  },
+                  {
+                    "id": "ultracode",
+                    "label": "Ultracode",
+                    "description": "xhigh effort plus multi-agent workflow orchestration"
+                  },
+                  {
+                    "id": "ultrathink",
+                    "label": "Ultrathink"
+                  }
+                ],
+                "promptInjectedValues": [
+                  "ultrathink"
+                ]
+              },
+              {
+                "id": "contextWindow",
+                "label": "Context Window",
+                "type": "select",
+                "options": [
+                  {
+                    "id": "200k",
+                    "label": "200k",
+                    "isDefault": true
+                  },
+                  {
+                    "id": "1m",
+                    "label": "1M"
+                  }
+                ]
+              }
+            ]
+          },
+          "adapter": {
+            "claudeCode": {
+              "effortMap": {
+                "ultracode": "xhigh",
+                "ultrathink": null
+              },
+              "modelSuffixes": {
+                "contextWindow": {
+                  "1m": "[1m]"
+                }
+              },
+              "contextWindowTokens": {
+                "200k": 200000,
+                "1m": 1000000
+              }
+            }
+          }
+        },
         "sonnet-5": {
           "capabilities": {
             "optionDescriptors": [
@@ -673,6 +752,23 @@
           "adapter": {
             "claudeCode": {
               "minVersion": "2.1.280"
+            }
+          }
+        },
+        {
+          "slug": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5",
+          "aliases": [
+            "sonnet-5.5",
+            "claude-sonnet-5.5",
+            "sonnet-5-5"
+          ],
+          "status": "current",
+          "badge": "new",
+          "profile": "sonnet-5-5",
+          "adapter": {
+            "claudeCode": {
+              "minVersion": "2.1.284"
             }
           }
         },
